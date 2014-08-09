@@ -24,7 +24,7 @@ int main() {
     sum += evenTerm;
   }
 
-  cout << "Sum: " << fg.nextEvenTerm() << endl;
+  cout << "Sum: " << sum << endl;
 
   return 0;
 }

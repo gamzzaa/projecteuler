@@ -23,13 +23,45 @@ long FibonacciGenerator::next() {
 }
 
 long FibonacciGenerator::nextEvenTerm() {
-  long sum = -1;
+  long evenTerm = 0;
+  bool running = true;
 
-  while (sum%2 != 0) {
-    sum = firstTerm + secondTerm;
-    firstTerm = secondTerm;
-    secondTerm = sum;
+  while (running) {
+    if (isEven(firstTerm)) {
+      evenTerm = firstTerm;
+      running = false;
+    } else if (isEven(secondTerm)) {
+      evenTerm = secondTerm;
+      running = false;
+    } else {
+      nextTwoTerms();
+    }
   }
 
-  return sum;
+  nextTwoTerms();
+
+  return evenTerm;
+}
+
+bool FibonacciGenerator::isEven(long term) {
+  return term%2 == 0;
+}
+
+void FibonacciGenerator::nextTwoTerms() {
+  // There are two terms
+
+  // firstTerm    secondTerm
+  //     |            |
+  //     v            v
+  //     1            2            3            5
+
+  // After invoking next() method two times there is following situation:
+
+  //                           firstTerm    secondTerm
+  //                               |            |
+  //                               v            v
+  //     1            2            3            5
+
+  next();
+  next();
 }

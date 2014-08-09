@@ -18,12 +18,17 @@ class FibonacciGenerator {
       secondTerm = termB;
     }
 
+    //FibonacciGenerator() :firstTerm(), secondTerm() { }
+
     long next();
     long nextEvenTerm();
 
   private:
     long firstTerm;
     long secondTerm;
+
+    bool isEven(long term);
+    void nextTwoTerms();
 };
 
 #endif // FIBONACCI_GENERATOR_H
