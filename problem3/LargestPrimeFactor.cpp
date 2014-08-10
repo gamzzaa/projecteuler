@@ -50,7 +50,7 @@ std::vector<long long> trial_division(const long long& n) {
   std::vector<long long> pfactors;
 
   if (n == 1) {
-    pfactors.push_back(n);
+    pfactors.push_back(n); // dlaczego nie mozna w tym wierszu postawic return
     return pfactors;
   }
 
@@ -77,9 +77,7 @@ std::vector<long long> trial_division(const long long& n) {
 int main() {
   std::vector<long long> vPrimeFactors = trial_division(number);
 
-  for (std::vector<long long>::iterator it = vPrimeFactors.begin(); it != vPrimeFactors.end(); it++) {
-    std::cout << *it << std::endl;
-  }
+  std::cout << vPrimeFactors.at(vPrimeFactors.size()-1) << std::endl;
 
   return 0;
 }
